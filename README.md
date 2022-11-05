@@ -24,3 +24,4 @@ PS C:\Users\cbrown\Desktop\shoebox> python3 shoebox.py
 
 The script will create a subdirectory for each image it finds with the format YYYY-MM-DD (if needed) for every photo, then move it to that directory. 
 
+[modeline]: # ( vi: set textwidth=78 colorcolumn=80: )
