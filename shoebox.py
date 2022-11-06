@@ -7,6 +7,7 @@ is to organize a collection of photos in folders, for example, iCloud
 Photo from a iPhone and iPad.
 """
 
+import datetime
 import glob
 import os
 import shutil
@@ -21,6 +22,21 @@ def get_date_taken(path):
     """
     raw_date_time = Image.open(path)._getexif()[36867]
     date_time_dashed = raw_date_time.replace(":", "-")
+    date_time = date_time_dashed.split(' ')[0]
+
+    return date_time
+
+def get_date_modified(path):
+    """
+    Use the os and date_time libraries to get the 'modified' date
+
+    Credit: https://pynative.com/python-file-creation-modification-datetime/#:~:text=How%20to%20Get%20File%20Modification%20and%20Creation%20Time,%28%29%20function%20to%20get%20a%20creation%20time%20
+    """
+    m_time = os.path.getmtime(path)
+    # convert timestamp into DateTime object
+    dt_m = datetime.datetime.fromtimestamp(m_time)
+    dt_m = str(dt_m)
+    date_time_dashed = dt_m.replace(":", "-")
     date_time = date_time_dashed.split(' ')[0]
 
     return date_time
