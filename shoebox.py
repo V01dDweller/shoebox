@@ -47,7 +47,10 @@ print(' ')
 input("Press Enter to continue")
 
 for image in IMAGE_LIST:
-    DATE = get_date_taken(image)
+    try:
+        DATE = get_date_taken(image)
+    except:
+        DATE = get_date_modified(image)
     IMAGE_BASENAME = os.path.basename(image)
     DEST_DIR = WORK_DIR + DATE
     DEST = DEST_DIR + '/' + IMAGE_BASENAME
