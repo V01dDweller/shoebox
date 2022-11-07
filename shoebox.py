@@ -53,8 +53,11 @@ COLOR = {
     }
 
 HOME_DIR = os.environ['HOME']
-WORK_DIR = HOME_DIR + '/Desktop/test_photos/'
-IMAGE_LIST = glob.glob(WORK_DIR + '/*JPG')
+WORK_DIR = HOME_DIR + '/Desktop/iPhone/'
+IMAGE_LIST = []
+FILE_TYPES = "JPG", "JPEG", "jpg", "jpeg", "png", "PNG", "HEIC", "heic"
+for i in FILE_TYPES:
+    IMAGE_LIST.append = glob.glob(WORK_DIR + "/" + i)
 
 print('Ready to organize ' + COLOR["yellow"] +  str(len(IMAGE_LIST)) +
     COLOR["reset"] + ' images in \'' + COLOR["blue"] + WORK_DIR +
